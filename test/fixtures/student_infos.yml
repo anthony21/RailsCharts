@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  FN: MyString
+  MI: MyString
+  LN: MyString
+  Address1: MyString
+  Address2: MyString
+
+two:
+  FN: MyString
+  MI: MyString
+  LN: MyString
+  Address1: MyString
+  Address2: MyString
