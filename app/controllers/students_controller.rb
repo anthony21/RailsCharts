@@ -59,5 +59,4 @@ end
         @t = @income
   end
 
-  \
 end

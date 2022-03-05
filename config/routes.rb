@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   get 'layouts/index'
 
 
-
   get 'students/first'
   get 'students/middle'
   get 'students/last'
