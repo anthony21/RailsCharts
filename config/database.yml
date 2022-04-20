@@ -57,6 +57,8 @@ test:
 #
 production:
   <<: *server
-  database: urbanoutlets
-  username: deploy
-  password: pass
+  # database: urbanoutlets
+  # username: deploy
+  # password: pass
+  url: <%= ENV["MY_APP_DATABASE_URL"] %>
+
