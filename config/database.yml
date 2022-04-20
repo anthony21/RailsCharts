@@ -59,4 +59,4 @@ production:
   <<: *server
   database: urbanoutlets
   username: deploy
-  password: <%= ENV["DATABASE_PASSWORD"] %>
+  password: pass
