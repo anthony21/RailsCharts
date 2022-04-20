@@ -17,6 +17,13 @@ default: &default
   password: password
   socket: /tmp/mysql.sock
 
+  server: &server
+   adapter: mysql2
+   encoding: utf8mb4
+   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+   port: 3306
+   host: 164.90.150.197
+
 development:
   <<: *default
   database: chart_development
@@ -49,7 +56,7 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: chart_production
-  username: chart
-  password: <%= ENV["CHART_DATABASE_PASSWORD"] %>
+  <<: *server
+  database: urbanoutlets
+  username: deploy
+  password: <%= ENV["DATABASE_PASSWORD"] %>
