@@ -30,4 +30,28 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        products:
+          attributes:
+  unauthorized: You are not allowed to do that.
+  accounts:
+    new: New Account
+    edit: Edit Account
+    show: "%{name} - Account"
+    title: Accounts
+    updated: You successfully updated %{name}.
+    buttons:
+      drop_title: Account settings
+      users: Manage users
+      edit: Edit
+      add_products: Add products
+      billing: Billing
+      edit_payment_method: Edit payment method
+      edit_subscription: Edit subscription
+  dashboard:
+    history: Recent activity
+    orders_ready: Order is ready
+    invoice: Invoice is ready
+    

@@ -1,27 +1,13 @@
+require 'resque/server'
+require 'resque/scheduler/server'
+
 Rails.application.routes.draw do
 
+ resources :users, except: %i(destroy) do
+  get :history, on: :member
+ end
 
-  get 'layouts/index'
+ get 'admin', to: 'admin#index'
+ root to: 'home#index'
 
-
-  get 'students/first'
-  get 'students/middle'
-  get 'students/last'
-  get 'students/index'
-  get 'students/prefix'
-
-  get 'students/address1'
-  get 'students/address2'
-  get 'students/city'
-  get 'students/state'
-  get 'students/zip_code'
-  get 'students/education'
-  get 'students/income'
-
-
-
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 end

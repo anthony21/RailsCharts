@@ -1,7 +1,7 @@
 class CreateStudents < ActiveRecord::Migration[7.0]
   def up
     create_table :students do |t|
-          t.strng :First
+          t.string :First
           t.string :MI
           t.string :Last
           t.string :Prefix
