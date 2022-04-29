@@ -4,11 +4,11 @@
 #
 # To use the locales, use `I18n.t`:
 #
-#     I18n.t "hello"
+#     I18n.t 'hello'
 #
 # In views, this is aliased to just `t`:
 #
-#     <%= t("hello") %>
+#     <%= t('hello') %>
 #
 # To use a different locale, set it with `I18n.locale`:
 #
@@ -24,7 +24,7 @@
 # Instead, surround them with single quotes.
 #
 # en:
-#   "true": "foo"
+#   'true': 'foo'
 #
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
@@ -33,25 +33,589 @@ en:
   activerecord:
     errors:
       models:
-        products:
+        audience:
           attributes:
+            data_source:
+              required: You must select a data source.
   unauthorized: You are not allowed to do that.
   accounts:
-    new: New Account
-    edit: Edit Account
+    edit: Edit account
+    new: New account
     show: "%{name} - Account"
     title: Accounts
     updated: You successfully updated %{name}.
+    available_records: Available records
+    billing: Billing
+    invoices: 
+      title: Your invoices
+      empty: You do not have any invoices right now.
     buttons:
       drop_title: Account settings
       users: Manage users
       edit: Edit
-      add_products: Add products
+      add_records: Add records
       billing: Billing
       edit_payment_method: Edit payment method
       edit_subscription: Edit subscription
+  audiences:
+    edit: Edit audience
+    new: New audience
+    show: "%{name} - Audience"
+    title: Audiences
+    search:
+      empty: You have not created any audiences yet.
+      no_match: No audiences were found matching your search request.
+      placeholder: Search audiences
+    buttons:
+      add_attribute: Add attribute
+      cancel: Cancel
+      clear: Clear
+      create: Create audience
+      delete: Delete audience
+      general: General
+      new: New audience
+      save: Save
+      select_lists: Select lists
+      view_chart: View chart
+      select_all: Select all
+      deselect_all: Deselect all
+    dnc:
+      "no": "No"
+      "yes": "Yes"
+    emails:
+      all: 100% emails
+      none: No emails
+      where_available: Emails where available
+    phones:
+      all: 100% phones
+      none: No phones
+      where_available: Phones where available
+    phone_types:
+      landline: Landline only
+      landline_priority: Landline (priority) + Wireless
+      wireless: Wireless only
+      wireless_priority: Wireless (priority) + Landline
+      where_available: where available
+      phone: "Phones"
+      all: 100%
+    views:
+      attribute_totals: View attribute totals
+      show_attribute_totals: Show attribute totals
+      audience_size: Audience size
+      audience_size_query: Audience size query
+      created: Created
+      data_source: Data source
+      details: Details
+      verbose_details: Verbose details
+      details_prompt: Select "Show attribute totals" on a field to see a breakdown of that field for this audience.
+      dnc: Include DNC phones
+      emails: Emails
+      fetch_error: There was an error fetching your audience.
+      last_updated: Last Updated
+      name: Name
+      overview: Overview
+      phone_type: Phone type
+      phones: Phones
+      query_time: Query time
+      select_type: Select type
+      suppressions: Suppressions
+      omit: Omit
+      auto:
+        make_model_search: Search makes and models
+        loading_search: Please wait while we fetch your results.
+        truncated: There were too many results to show. Try a more specific search.
+        no_result: Your search did not return any matches.
+      mortgage:
+        lender: Mortgage Lender
+        add_lender: Add mortgage lenders
+      geography:
+        geography: Geography
+        nationwide: Nationwide
+        states: State
+        counties: County
+        cities: City
+        zip_codes: Zip code
+        zip_code_radius: Zip code radius
+        zip_code_placeholder: Zip code (01001)
+        zip_code_radius_placeholder: Miles (10)
+        radius: Within %{radius} miles of %{zip_code}
+        msa: Metro Area (MSA)
+        scf: Sectional Center Facility (SCF)
+    destroy:
+      confirmation: Are you sure you want to delete the audience, %{name}?
+      success: You successfully deleted %{name}.
+    updated: You successfully updated %{name}.
+  campaigns:
+    title: Campaigns
+    builder: Campaign builder
+    placeholder: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien sit amet sapien volutpat pretium. Fusce pretium ante vel laoreet imperdiet. Nullam eget velit nec est volutpat aliquam. Phasellus vitae aliquet enim, ut congue nunc.
+    created: You successfully saved %{name}.
+    goals: "Goals:"
+    search:
+      no_match: No campaigns were found matching your search request.
+      empty: You have not created any campaigns yet.
+      placeholder: Search campaigns
+    buttons:
+      new: New campaign
+      next: Next
+      save: Save Campaign
+      select: Select
+      remove: Remove
+      learn_more: Learn more
+      back: Back
+      confirm_details: Confirm details
+    sections:
+      campaign_type:
+        title: Campaign
+        prompt: Select campaign type
+        modal:
+          details: Campaign details
+          range: Campaign range
+          budget: Estimated monthly advertising budget for campaign
+          impression: Cost-per-impression goal (optional)
+          subscriber: Cost-per-subscriber goal (optional)
+          lead: Cost-per-lead goal (optional)
+          average_cart: What is your estimated average cart purchase value?
+          conversion: Cost-per-conversion (purchase) goal (optional)
+          luxury_cart: What is your estimated luxury product purchase value?
+          payment_frequency: What is your payment frequency? (Select all that apply)
+          subscription_order: What is your estimated subscription order value?
+          units:
+            views: per 1000 views
+            subscriber: per subscriber
+            inbound_lead: per inbound lead
+            qualified_lead: per sales qualified lead
+            online_purchase: average online purchase amount
+            conversion: per conversion (purchase)
+          text_placeholder:
+            small: e.g. $15
+            md: e.g. $100
+            lg: e.g. $1,000
+            xl: e.g. $10,000
+        categories:
+          awareness:
+            title: Awareness
+            description: The purpose of awareness campaigns is to drive maximum brand impressions across target markets to qualified constituents.
+          lead_generation:
+            title: Lead generation
+            description: The purpose of lead generation campaigns is to capture maximum inbound leads across target markets to qualified customers.
+          e_commerce:
+            title: E-commerce
+            description: The purpose of e-commerce campaigns is to drive maximum online shopping cart checkout amounts.
+        options:
+          launch:
+            title: Launch
+            description: Launch campaigns introduce modeled test audiences to the name, message and content of a new brand. They are measured by their cost-per-impression in a target market over a set period of time.
+            modal_subtitle: Launch campaign
+          scale:
+            title: Scale
+            description: Scale campaigns increase advertising budgets into expanded geographic ranges. They reach new demographics of constituents while holding modeled cost-per-impression metrics.
+            modal_subtitle: Scale campaign
+          conquest:
+            title: Conquest
+            description: Conquest campaigns saturate communication channels with brand awareness messaging across target markets. Every qualified constituent is targeted with simultaneous advertising messages via multiple marketing channels.
+            modal_subtitle: Conquest campaign
+          subscribers:
+            title: Subscribers
+            description: Subscriber campaigns build warm lists of potential customers by incentivizing individuals to sign up to receive exclusive communications, limited time opportunities and special offers.
+            modal_subtitle: Subscriber campaign
+          leads:
+            title: Inbound leads
+            description: Inbound lead campaigns generate maximum leads via form submission, inbound call and chat for immediate follow up. Campaigns are driven by content requests and are measured according to cost-per-lead performance.
+            modal_subtitle: Inbound lead campaign
+          opportunities:
+            title: Opportunities
+            description: Opportunity campaigns generate maximum sales qualified leads. Sales qualified leads must be active in the buying process and have been verified to meet all customer requirements.
+            modal_subtitle: Opportunity campaign
+          consumer_goods:
+            title: Goods and services
+            description: Consumer goods campaigns maximize online sales revenues for available inventories while increasing average customer checkout values. Campaigns are measured by return-on-advertising performance metrics.
+            modal_subtitle: Goods and services campaign
+          luxury_goods:
+            title: Luxury purchases
+            description: Luxury purchase campaigns drive high-end buyer candidates into streamlined sales funnels. Expensive purchases require special follow up, custom delivery and have exclusive experiences included.
+            modal_subtitle: Luxury products campaign
+          recurring_orders:
+            title: Subscription orders
+            description: Subscription order campaigns drive recurring revenues for a contracted term. Most subscriptions auto-renew and have clear upgrade paths based on product usage and available features.
+            modal_subtitle: Subscription order campaign
+      audience:
+        title: Audience
+        prompt: Select audience
+        error: An audience is required
+      channels:
+        title: Channels
+        prompt: Select marketing channel
+        categories:
+          social_media: Social media
+          web: Web
+          email: Email
+          influencer: Influencer
+          direct_mail: Direct mail
+          telemarketing: Telemarketing
+        options:
+          facebook: Facebook
+          instagram: Instagram
+          linkedin: LinkedIn
+          twitter: Twitter
+          google: Google
+          youtube: Youtube
+          bing: Bing
+          outreach: Outreach
+          engagement: Engagement
+          nurture: Nurture
+          automations: Automations
+          nano: Nano
+          micro: Micro
+          macro: Macro
+          mega: Mega
+          personal: Personal
+          promotional: Promotional
+          automated: Automated
+          prospecting: Prospecting
+          call_center: Call center
+          data_enrichment: Data enrichment
+      systems:
+        title: Systems
+        prompt: Select your company's systems
+        categories:
+          website: Website
+          crm: CRM
+          landing_page: Landing page
+          chat: Chat
+          calendars: Calendars
+          email_marketing: Email marketing
+          webinar: Webinar
+          sms: SMS
+        options:
+          wordpress: Wordpress
+          squarespace: Squarespace
+          shopify: Shopify
+          magento: Magento
+          hubspot: Hubspot
+          salesforce: Salesforce Lightning
+          zoho_one: Zoho One
+          marketo: Marketo (Adobe)
+          unbounce: Unbounce
+          mailchimp: MailChimp
+          hubspot_marketing: Hubspot Marketing Hub
+          wistia: Wistia
+          intercom: Intercom
+          drift: Drift
+          tawk: Tawk
+          g_suite: G-Suite (Google)
+          outlook: Outlook 365 (Microsoft)
+          calendly: Calendly
+          hubspot_sales: Hubspot Sales Hub
+          constant_contact: Constant contact
+          active_campaign: Active campaign
+          webinarjam: WebinarJam
+          livestorm: LiveStorm
+          gotowebinar: GoToWebinar
+          zoom_video: Zoom Video Webinars
+          twilio: Twilio
+          tatango: Tatango
+          simpletexting: SimpleTexting
+          mobilecause: MobileCause
+      content:
+        title: Content
+        prompt: Select content
+        categories:
+          web_development: Web development
+          creatives: Creatives
+          thought_leadership: Thought leadership
+          video: Video
+        options:
+          conversation_optimization: Conversation optimization
+          search_ranking: Search ranking
+          brand_enhancement: Brand enhancement
+          payment_processing: Payment processing
+          video_ads: Video ads
+          graphic_design: Graphic design
+          creative_copywriting: Creative copywriting
+          email_ads: Email ads
+          infographics: Infographics
+          ebooks: E-books
+          webinars: Webinars
+          case_studies: Case studies
+          psa: PSA
+          teaser: Teaser
+          promo: Promo
+          tutorial: Tutorial
+      summary:
+        title: Summary
+        prompt: Name and save your campaign
+        error: A name is required
+        no_options_selected: No options selected.
+  data:
+    look_up: Phone look up
+  data_sources:
+    title: Data sources
+    show: "%{name} - Data source"
+  features:
+    title: Features
+  lists:
+    title: Lists
+    new: New list
+    edit: Edit list
+    show: "%{name} - List"
+    upload: Upload a list
+    visualize: Visualize list
+    visualizing: We're visualizing your data. This could take a minute, please wait.
+    available_appends: Available appends
+    appends:
+      prompt: Select the data you would like to append to your list.
+      success: We are appending your data. It will be ready momentarily.
+    buttons:
+      download: Download
+      edit: Edit
+      delete: Delete list
+      visualize: Visualize
+      append: Append
+      create_appended_list: Create appended list
+    created:
+      audience: We are creating your list and it will be ready to download momentarily.
+      upload: We are processing your list and it will be ready momentarily.
+      upload_failed: 'failed to upload. Please make sure the file type is one of the following:'
+    destroy_confirmation: Are you sure you want to delete the list, %{name}?
+    destroyed: You successfully deleted %{name}.
+    download_unavailable: There is no download available for this list.
+    empty:
+      search: No lists were found matching your search request.
+      no_search: You have not created any lists yet.
+    errors:
+      not_enough_account_records: Your account does not have enough records available.
+      not_enough_audience_records: This audience does not have enough records available.
+      column_mappings: Please fill in one of the following mappings - 1) Last name, address, and zip. 2) Email. 3) Phone.
+    mapping_help_text: Please select which columns map to the following fields. Not all fields are required, but the more fields you map, the better we can match against other data sources.
+    match_types:
+      title: Available match types
+      household: Household
+      email: Email
+      phone: Phone
+      address: Address
+      individual: Individual
+    updated: You successfully updated %{name}.
+    status_change:
+      processing: has started processing
+      ready: is ready
+      failed: has failed to process
+    views:
+      audience: Audience
+      details: Details
+      selections: Selections
+  passwords:
+    email_notice: If your email address exists in our database, you will receive a password recovery link at your email in a few minutes.
+    invalid_link: The link provided is not valid.
+    updated: Your password has been successfully updated.
+    set: Your password has been successfully set.
+  record_transactions:
+    title: Record transactions
+    new: Add records
+    edit: Edit record transaction
+    show: "Record transaction #%{id}"
+    created: You successfully added %{count} records to %{account}.
+    destroyed: You successfully deleted the record transaction.
+    updated: You successfully updated the record transaction.
+  registrations:
+    invalid_invite: You used an invalid sign up link. Please check with the person who provided the link to you.
+    account_updated: Your account was successfully updated.
+  reports:
+    count: CORE Count Report
+    counts_by_database: CORE Counts by Database Report
+    counts_by_vendor: CORE Counts by Vendor Report
+    flagged_counts: CORE Flagged Counts Report
+    flagged_po: CORE Flagged PO Report
+    order: CORE Order Report
+    processor: CORE Processor Report
+    purchase_order: CORE Purchase Order Report
+    purchase_orders_by_database: CORE Purchase Orders by Database Report
+    purchase_orders_by_vendor: CORE Purchase Orders by Vendor Report
+    trend: CORE Trend Report
+    timings: CORE Timings Report
+  users:
+    title: Users
+    edit: 'Edit user'
+    show: "%{display_name} - User"
+    invite: Invite user
+    sign_up: Create a new account
+    sign_in: Sign in to your account
+    settings: Profile settings
+    change_password: Change your password
+    views:
+      name: Name
+      first_name: First name
+      last_name: Last name
+      email: Email
+      email_address: Email address
+      theme: Theme
+      account: Account
+      role: Role
+      organization: Organization name
+      password: Password
+      confirm_password: Confirm password
+      forgot_password: Forgot your password?
+      new_password: New password
+      confirm_new_password: Confirm new password
+      current_password: Current password
+      invite: Use the link below to invite a user to your organization.
+      profile_pic: Profile picture
+      change_profile_pic: Change your profile picture at
+      edit_profile: Edit profile
+      change_password: Change password
+      email_error: Looks like you work at Giant Partners. Please ask an admin for an invite to the Giant Partners account.
+      api: API
+      api_key: API Key
+    search:
+      placeholder: Search users
+    buttons:
+      invite: Invite user
+      save: Save
+      copy:
+        copied: Copied!
+        clipboard: Copy to clipboard
+      create: Create account
+      sign_in: Sign in
+      update_profile: Update profile
+      change_password: Change password
+      change_my_password: Change my password
+      set_my_password: Set my password
+      reset_password: Send me reset password instructions
+    destroyed: You successfully deleted %{name}.
+    updated: You successfully updated %{name}.
+  visualizations:
+    destroyed: You successfully deleted %{name}.
+    empty:
+      search: No visualizations were found matching your search request.
+      no_search: You have not created any visualizations yet.
+    updated: You successfully updated %{name}.
+  invoices:
+    sum_total: Sum total
+    payments_made: Payments made
+    remaining_balance: Remaining balance
+    choose_payment_method: How would you like to pay?
+    terms_and_conditions:
+      title: Terms & conditions
+      label: The terms and conditions of this invoice may be viewed
+    buttons:
+      pay_now: Pay now
+      credit_card: Credit card
+      check: Check
+  orders:
+    title: Order
+    payment_terms: Payment terms
+    shipping_method: Shipping method
+    sales_rep: Sales rep
+    total_due: Total due
+    discount: Discount
+    notes: Notes
+    not_approvable: Order is not in an approvable state
+    confirmations:
+      title: 'Step 1: Approve your order'
+      instructions: 'Before we ship your order we want to make sure everything is perfect! Please review the details on order #%{order} shown below for a final approval.'
+      approval_question: Did we get it right?
+      correct_order: Yes, my order is correct
+      contact_me: No, please contact me
+      terms_and_conditions: Terms & conditions
+      accept_terms: I accept the billing terms & conditions
+      type_full_name: Type your full name
+      type_job_title: Type your job title
+      approved: 'Thank you for confirming order #%{order}'
+      rejected: Your rep will contact you as soon as possible
+      net_agreement: 'After clicking "Agree & confirm", I understand that I will be invoiced %{amount} and agree that I owe this sum to %{partner} for the products and services outlined in the order confirmation shown above.'
+    san:
+      auth_name: Authorized officer name
+      auth_title: Authorized officer title
+      dnc_registry: DNC Registry
+      expiration_date: SAN Expiration date
+      licensee: Licensee legal name
+      title: Subscription account number (SAN)
+      dnc_exempt:
+        after_link: and the Federal Communications rules and regulations. You agree that GCP does not assume, nor is it responsible, for any liability whatsoever that might arise from any Customer contacting any and all Do Not Call Registered consumers under any circumstances.
+        before_link: Check here if your organization is DNC exempt
+        link_text: as defined by the Federal Trade Commission
+        title: 'DNC exempt: For organizations that are not required to register with the Do Not Call Registry'
+      errors:
+        fields_or_exempt: All fields should be filled or exempt checked
+    buttons:
+      approve_and_sign: Approve and sign to continue
+      agree_and_continue: Agree & confirm
+      notify_rep: Notify my rep
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "&hellip;"
+    search:
+      clear: Clear search
+    table:
+      filter_list: To filter the list, type in the boxes below and hit
+      enter: Enter
+      account: Account
+      action: Action
+      created: Created
+      data_source: Data Source
+      date: Date
+      email: Email
+      enabled: Enabled
+      field: Field
+      id: Id
+      name: Name
+      record_count: Record count
+      role: Role
+      size: Size
+      time: Time
+      status: Status
+      type: Type
+      user: User
+      value: Value
+      when: When
+      all: All
+      only_mine: Only mine
+      amount: Amount
+      invoice_number: Invoice #
+      bill_to: Bill to
+      ship_to: Ship to
+      ship_method: Ship method
+      terms: Terms
+      rep: Rep
+      quantity: Quantity
+      description: Description
+      price: Price
+      details: Details
+      item: Item
+      unit_price: Unit price
   dashboard:
+    queue: Queue
     history: Recent activity
-    orders_ready: Order is ready
-    invoice: Invoice is ready
-    
+    no_activity: No recent activity.
+    all_activity: All activity
+    order_ready: 'Order #%{order} is ready for you to review'
+    invoice_ready: 'Invoice #%{invoice} is open for payment'
+  audits:
+    create: created
+    update: edited
+    destroy: deleted
+    history: History
+    activity_log_title: Activity log
+  actions:
+    download_list: Download list
+    edit: Edit
+    delete: Delete
+    edit_profile: Edit profile
+    manage_features: Manage features
+  time:
+    ago: ago
+  helpers:
+    page_entries_info:
+      zero_entries: "No %{entry_name} found"
+      one_entry: "Showing 1 %{entry_name}"
+      one_page: "Showing all %{count} %{entry_name}"
+      many_pages: "Showing %{from} - %{to} of %{count} %{entry_name}"
+  general:
+    or: Or
+    to: to
+    here: here
+    from: From

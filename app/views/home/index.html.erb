@@ -1,8 +1,15 @@
-<%= title 'Dashboard' %>
 
-div class="flex flex-col xl:flex-row xl:space-x-6 space-y-6 xl:space-y-0 mt-6">
-  <%= dashboard_list type: 'queue', list: @queue %>
-  <%= dashboard_list type: 'history', list: @history %>
+
+<div class="flex flex-wrap">
+  <%= dashboard_action title: 'Manage Products', url: '#', image: 'dashboard/audience.png', index: 0, description: 'Build a marketing list', icon: 'screen-users' %>
+
+    <%= dashboard_action title: 'Create Campaigns', url:'#', image: 'dashboard/campaign.png', index: 1, description: 'Plan your next big push', icon: 'bullhorn' %>
+
+  <%= dashboard_action title: 'Check Sales', url: '#', image: 'dashboard/learn.png', index: 2, description: 'Become a marketing master', icon: 'graduation-cap' %>
+</div>
+
+<div class="flex flex-col xl:flex-row xl:space-x-6 space-y-6 xl:space-y-0 mt-6">
+ 
 </div>
 
 <div class="flex flex-wrap">
