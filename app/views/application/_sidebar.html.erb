@@ -1,0 +1,26 @@
+<div class="hidden sm:flex flex-col w-56">
+  <div class="flex flex-col flex-grow pb-4 bg-black overflow-hidden">
+    <div class="relative flex-shrink-0 flex items-center justify-center text-white -mx-8">
+      <%= image_tag 'via-header.png', class: 'w-auto' %>
+      <%= inline_svg_tag 'via.svg', class: 'absolute h-5 w-auto fill-current' %>
+    </div>
+    <div class="mt-16 flex-grow flex flex-col">
+      <nav class="flex-1 px-1 space-y-4 text-gray-200">
+        <%= navigation_link 'Dashboard', :root, icon: 'home' %>
+        <%= navigation_link t('audiences.title'), [Current.account, :audiences], icon: 'screen-users', active: :inclusive %>
+        <%= navigation_link 'Lists', [Current.account, :lists], icon: 'address-card', active: :inclusive %>
+        <% if Feature.enabled? :campaigns %>
+          <%= navigation_link t('campaigns.title'), [Current.account, :campaigns], icon: 'bullhorn', active: :inclusive %>
+        <% end %>
+        <% if Feature.enabled? :ping %>
+          <%= navigation_link 'Phone look up', look_up_data_path, icon: 'phone', active: :inclusive %>
+        <% end %>
+        <% if Feature.enabled? :account_management %>
+          <%= navigation_link 'Super admin', admin_path, icon: 'user-crown', active: :inclusive %>
+        <% end %>
+      </nav>
+
+      <%= footer %>
+    </div>
+  </div>
+</div>

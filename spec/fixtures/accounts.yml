@@ -1,0 +1,15 @@
+urban_outlets:
+  name: Urban Outlets
+  urban_outlets: true
+
+acme:
+  name: Acme Corporation
+  urban_outlets: false
+
+fake_empty_co:
+  name: Fake Empty Co
+  urban_outlets: false
+
+empire:
+  name: The Empire
+  urban_outlets: false

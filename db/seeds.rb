@@ -1,26 +1,62 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-require 'csv'
+test_account = Account.create(name: 'Test Organization')
 
-csv_text = File.read(Rails.root.join('lib','seeds','coding-challenge.csv'))
-csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-csv.each do |row|
-    Student.create({
-        First: row["FIRST NAME"],
-        MI: row ["MIDDLE INITIAL"],
-        Last: row["LAST NAME"],
-        Prefix: row["PREFIX"],
-        Address1: row["ADDRESS 1"],
-        Address2: row["ADDRESS 2"],
-        City: row["CITY"],
-        State: row["STATE"],
-        Zip: row["ZIP CODE"],
-        Education: row["EDUCATION"],
-        Income: row["ESTIMATED INCOME"]
-    })
-end
+uo_account = Account.create(name: 'Urban Outlets')
+
+features = {
+  account_management: true,
+  feature_management: true,
+  super_admin: true,
+  campaigns: true,
+  count_timings: true,
+  ping: true,
+  download_list: true
+}
+
+seed_users = [
+  {
+    first_name: 'Test',
+    last_name: 'Admin',
+    email: 'admin@test.com',
+    password: 'testtest',
+    role: :admin,
+    account_id: test_account.id
+  },
+  {
+    first_name: 'Test',
+    last_name: 'User 1',
+    email: 'user1@test.com',
+    password: 'testtest',
+    role: :user,
+    account_id: test_account.id
+  },
+  {
+    first_name: 'Test',
+    last_name: 'User 2',
+    email: 'user2@test.com',
+    password: 'testtest',
+    role: :user,
+    account_id: test_account.id
+  },
+  {
+    first_name: 'GP',
+    last_name: 'Admin',
+    email: 'admin2@test.com',
+    password: 'testtest',
+    role: :admin,
+    account_id: uo_account.id,
+    features: features
+  },
+  {
+    first_name: 'GP',
+    last_name: 'Help',
+    email: 'help@test.com',
+    password: 'testtest',
+    role: :user,
+    account_id: uo_account.id,
+    features: features
+  }
+]
+
+User.create(seed_users)
+
+

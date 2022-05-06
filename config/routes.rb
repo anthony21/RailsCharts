@@ -2,6 +2,9 @@ require 'resque/server'
 require 'resque/scheduler/server'
 
 Rails.application.routes.draw do
+  mount ActionCable.server => '/cable'
+  mount Resque::Server.new, at: '/resque', constraints: AdminConstraint.new
+  mount Ring::Engine => '/ping'
 
  get 'sign_in', to: 'sessions#new', as: :new_session
  post 'sign_in', to: 'sessions#create', as: :session
@@ -12,8 +15,10 @@ Rails.application.routes.draw do
  delete 'profile', to: 'registrations#edit', as: :edit_profile
 
  
- resources :accounts do 
-    get :history, on: :member
+ resources :accounts do
+   get :history, on: :member
+   get :activity, on: :member
+   get :billing, on: :member
  end
  resources :users, except: %i(destroy) do
   get :history, on: :member

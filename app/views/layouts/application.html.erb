@@ -8,9 +8,21 @@
     <%= stylesheet_link_tag 'tailwind', media: 'all' %>
 
     <%= javascript_importmap_tags %>
+
+    <% if Rails.env.test? %>
+     <%= render 'disable_animations' %>
+    <% end %>
+
+    <%= favicon_link_tag 'favicon.png' %>
+    <%= render 'theme_watcher' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="subpixel-antialiased h-full dark:text-gray-200 <%= Current.user ? 'bg-gray-100 dark:bg-gray-900' : 'bg-white dark:bg-gray-900' %>" data-controller="hidden event">
+    <% if Current.user %>
+      <%= render 'application_shell' %>
+    <% else %>
+      <%= yield %>
+    <% end %>
+
   </body>
 </html>
